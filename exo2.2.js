@@ -1,4 +1,4 @@
-const readlineSync = require('readline-sync');
+/*const readlineSync = require('readline-sync');
 
 let min, max, current;
 min = readlineSync.question("Indicate your minimum number :");
@@ -14,4 +14,19 @@ if (min > max) {
 
 else if ((max > current) && (current > min)) {
     console.log(current);
+}*/
+
+
+const readlineSync = require('readline-sync')
+
+let current = readlineSync.question("Entrez un chiffre: ")
+let min = readlineSync.question("Entrez un chiffre plus petit: ")
+let max = readlineSync.question("Entrez un chiffre plus grand: ")
+
+if (min > max){
+    console.log("T'es con ou quoi ?! " + max + " est plus petit que " + min)
+}
+
+else if (min < current< max){
+    console.log("Bravo ! " + current + " est bien entre " + min + " et " + max)
 }
