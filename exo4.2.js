@@ -1,5 +1,5 @@
 let min = 0;
-let max = 1;
+let max = 100;
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -13,5 +13,5 @@ function multiRand(n) {
     }
 }
 
-let n = 5;
+let n = 15;
 multiRand(n);
