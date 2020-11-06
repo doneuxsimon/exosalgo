@@ -1,57 +1,41 @@
 const readlineSync = require('readline-sync');
 
-let userNumber = 0;
-let averageNumber = 0;
-let minimumNumber = 0;
-let maximumNumber = 0;
-let array = [];
-let position = 0;
 
-
-function askNumber(userNumber) {
-    userNumber = readlineSync.question("Put your number : ");
-    multiRand(userNumber);
-    minimum(minimumNumber);
-    maximum(maximumNumber);
-    average(averageNumber);
+function getRandomInt() {
+        return Math.floor(Math.random() * 100);
 }
-
-let min = 0;
-let max = 100;
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function multiRand(userNumber) {
-    while (userNumber-- != 0) {
-        array[position] == getRandomInt(min, max);
-        position++;
+    
+function multiRand (n) {
+    for (let i = 0; i < n; i++) {
+        arr.push(getRandomInt());
     }
+    return arr;
 }
 
-function minimum(minimumNumber) {
-    minimumNumber = Math.min.apply(null, array);
-    console.log(minimumNumber);
+function minimum() {
+    console.log(Math.min.apply(Math, arr));
 }
-
-function maximum(maximumNumber) {
-    maximumNumber = Math.max.apply(null, array);
-    console.log(maximumNumber);
+    
+function maximum() {
+    console.log(Math.max.apply(Math, arr)); 
 }
+    
+function average() {
+    let moyenne = 0;
+    let i = 0;
 
-let moyenne = 0;
-let i = 1;
+while (i <= arr.length-1) {
+    moyenne = moyenne + arr[i];
+    i++;
+}
+console.log(moyenne / i);
+}
+let userNumber = readlineSync.question("How many numbers u want? ");
+let arr = [];
 
-function average(averageNumber) {
-    while (i <= userNumber) {
-        moyenne = moyenne + array[i];
-        i++;
-    }
-    averageNumber = moyenne / i;
-    console.log(averageNumber);
-    }
 
-askNumber(userNumber);
+
+multiRand(userNumber);   
+minimum();
+maximum();
+average();
